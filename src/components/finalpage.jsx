@@ -36,5 +36,5 @@ const FinalPage = () => {
     </div>
   );
 };
-
+  
 export default FinalPage;
