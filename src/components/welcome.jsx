@@ -22,3 +22,5 @@ function WelcomePage() {
 }
 
 export default WelcomePage;
+
+const ciTest = "hello";
