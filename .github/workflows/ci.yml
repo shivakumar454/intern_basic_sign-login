@@ -1,5 +1,5 @@
 
-name: Frontend CI
+name: Frontend CI/CD
 
 on:
   push:
@@ -9,6 +9,8 @@ on:
 
 jobs:
   build:
+    # Deploy only from pushes to main, never from pull requests.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +31,8 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Deploy to Vercel
+        run: curl --fail --silent --show-error -X POST "$VERCEL_DEPLOY_HOOK"
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
