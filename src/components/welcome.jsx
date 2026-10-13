@@ -8,7 +8,7 @@ function WelcomePage() {
   return (
     <div className="container">
       <div className="welcome-box">
-        <h2>Welcome to PopX</h2>
+        <h2>Welcome to PopX!</h2>
         <p>Join us and start your journey today.</p>
         <button className="btn" onClick={() => navigate("/signup")}>
           Create Account
